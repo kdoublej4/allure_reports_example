@@ -1,0 +1,68 @@
+plugins {
+    id 'java'
+    id('io.qameta.allure') version '2.12.0' // <===== Эта зависимость
+}
+
+group = 'guru.qa'
+version = '1.0-SNAPSHOT'
+
+/**
+ * Добавление блока allure { ... } в build.gradle файл не является обязательным для создания папки build/allure-results.
+ * Если вы уже добавили плагин id('io.qameta.allure') version '2.12.0' в секцию plugins,
+ * то папка build/allure-results будет создаваться автоматически после выполнения тестов.
+
+ * Этот блок allure { ... } обычно используется для более тонкой настройки поведения Allure,
+ * например, для указания конкретной версии Allure, настройки автоматического конфигурирования или включения
+ * специфических адаптеров, таких как junit5. Если вам не требуется дополнительная настройка, а вы просто хотите,
+ * чтобы результаты тестов собирались в папку build/allure-results, достаточно просто подключить плагин, как вы уже сделали.
+ */
+
+//allure {
+//    report {
+//        version.set("2.19.0")    // Устанавливает версию Allure, которая будет использоваться для генерации отчетов.
+//    }
+//    adapter {                   // Настраивает адаптер Allure, который отвечает за сбор и сохранение результатов тестов.
+//        aspectjWeaver.set(true) // Включает поддержку AspectJ Weaving, что необходимо для некоторых аспектов работы Allure
+//        frameworks {            // (например, для интеграции с фреймворками тестирования).
+//            junit5 {            // Настраивает адаптер для работы с JUnit 5, который будет собирать результаты тестов.
+//                adapterVersion.set("2.19.0") // Устанавливает версию адаптера Allure для JUnit 5.
+//            }
+//        }
+//    }
+//}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            'com.codeborne:selenide:7.4.2',
+            'org.projectlombok:lombok:1.18.32',
+            'org.junit.jupiter:junit-jupiter:5.10.3',
+            'org.slf4j:slf4j-simple:2.0.15',
+            'io.qameta.allure:allure-selenide:2.29.0'
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/*
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:7.4.2",
+            'org.projectlombok:lombok:1.18.32',
+            "org.junit.jupiter:junit-jupiter:5.10.3",
+            "org.slf4j:slf4j-simple:2.0.15",
+            'com.github.javafaker:javafaker:1.0.2',
+            'com.codeborne:pdf-test:1.5.0',
+            'com.codeborne:xls-test:1.4.3',
+            'com.opencsv:opencsv:5.7.1',
+            'com.google.code.gson:gson:2.10.1'
+    )
+}
+
+ */
