@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id('io.qameta.allure') version '2.12.0' // <===== Эта зависимость
+}
+
+group = 'guru.qa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            'com.codeborne:selenide:7.4.2',
+            'org.projectlombok:lombok:1.18.32',
+            'org.junit.jupiter:junit-jupiter:5.10.3',
+            'org.slf4j:slf4j-simple:2.0.15',
+            'io.qameta.allure:allure-selenide:2.29.0'
+    )
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
+
