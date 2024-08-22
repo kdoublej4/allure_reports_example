@@ -4,7 +4,7 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class LabelsTest {
+public class LabelsTest extends BaseTest {
 
     @Test
     @Feature("Issue в репозитории") // <== Определяет функциональность, к которой относится тест

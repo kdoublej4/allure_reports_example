@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.attachment;
 import static io.qameta.allure.Allure.step;
 
-public class AttachmentsTest {
+public class AttachmentsTest extends BaseTest {
     private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final int ISSUE = 80;
 
@@ -25,7 +25,6 @@ public class AttachmentsTest {
                 .shouldSeeIssueWithNumber(ISSUE)
                 .takeScreenshot(); // <==== новый метод для скриншота
     }
-
     @Test
     public void testLambdaAttachments() {
         SelenideLogger.addListener("allure", new AllureSelenide());

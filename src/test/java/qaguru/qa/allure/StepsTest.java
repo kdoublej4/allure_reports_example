@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class StepsTest {
+public class StepsTest extends BaseTest {
     private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final int ISSUE = 80;
 
