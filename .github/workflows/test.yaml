@@ -14,29 +14,29 @@ jobs:
       - uses: Xotabu4/selenoid-github-action@v2  # Используем Selenoid для запуска браузерных тестов
       - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub  # Запуск тестов через Gradle, используя удаленный браузер Selenoid
 
-        # Скачиваем историю тестов
-      - uses: actions/checkout@v2  # Снова выкачиваем репозиторий, но уже для работы с веткой gh-pages
-        if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
-        continue-on-error: true  # Продолжаем выполнение, даже если произошла ошибка
-        with:
-          ref: gh-pages  # Указываем, что работаем с веткой gh-pages
-          path: gh-pages  # Клонируем содержимое ветки gh-pages в локальную директорию 'gh-pages'
-
-        # Генерируем отчет
-      - uses: ./allure-report-action  # Используем локальный экшен для генерации Allure отчета
-        if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
-        with:
-          allure_results: build/allure-results  # Путь к результатам тестов (Allure)
-          gh_pages: gh-pages  # Путь к локальной директории, содержащей данные ветки gh-pages
-          allure_report: allure-report  # Путь к директории, куда будет сохранен сгенерированный Allure отчет
-          allure_history: allure-history  # Путь к директории с историей отчетов Allure
-
-        # Публикуем отчет
-      - uses: peaceiris/actions-gh-pages@v2  # Публикуем сгенерированный Allure отчет на GitHub Pages
-        if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Используем GitHub токен для авторизации и пуша в ветку gh-pages
-          PUBLISH_BRANCH: gh-pages  # Указываем ветку для публикации отчета (gh-pages)
-          PUBLISH_DIR: allure-history  # Указываем директорию, содержимое которой будет опубликовано на GitHub Pages
+#        # Скачиваем историю тестов
+#      - uses: actions/checkout@v2  # Снова выкачиваем репозиторий, но уже для работы с веткой gh-pages
+#        if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
+#        continue-on-error: true  # Продолжаем выполнение, даже если произошла ошибка
+#        with:
+#          ref: gh-pages  # Указываем, что работаем с веткой gh-pages
+#          path: gh-pages  # Клонируем содержимое ветки gh-pages в локальную директорию 'gh-pages'
+#
+#        # Генерируем отчет
+#      - uses: ./allure-report-action  # Используем локальный экшен для генерации Allure отчета
+#        if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
+#        with:
+#          allure_results: build/allure-results  # Путь к результатам тестов (Allure)
+#          gh_pages: gh-pages  # Путь к локальной директории, содержащей данные ветки gh-pages
+#          allure_report: allure-report  # Путь к директории, куда будет сохранен сгенерированный Allure отчет
+#          allure_history: allure-history  # Путь к директории с историей отчетов Allure
+#
+#        # Публикуем отчет
+#      - uses: peaceiris/actions-gh-pages@v2  # Публикуем сгенерированный Allure отчет на GitHub Pages
+#        if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
+#        env:
+#          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Используем GitHub токен для авторизации и пуша в ветку gh-pages
+#          PUBLISH_BRANCH: gh-pages  # Указываем ветку для публикации отчета (gh-pages)
+#          PUBLISH_DIR: allure-history  # Указываем директорию, содержимое которой будет опубликовано на GitHub Pages
 
 
