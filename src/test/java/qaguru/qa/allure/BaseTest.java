@@ -15,7 +15,7 @@ public class BaseTest {
 //        capabilities.setCapability("enableVNC", true);
 //        capabilities.setCapability("enableVideo", false);
 
-        Configuration.headless = true;
-        Configuration.browserSize = "1920x1080";
+//        Configuration.headless = true;
+//        Configuration.browserSize = "1920x1080";
     }
 }

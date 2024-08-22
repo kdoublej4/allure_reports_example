@@ -11,8 +11,8 @@ jobs:
         with:
           distribution: 'oracle' # Указываем название поставщика JDK
           java-version: '17'
-#      - uses: Xotabu4/selenoid-github-action@v2
-      - run: ./gradlew clean test # запуск тестов
+      - uses: Xotabu4/selenoid-github-action@v2
+      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub # запуск тестов
 
 
 
