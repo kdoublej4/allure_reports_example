@@ -1,0 +1,17 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Где запускаем
+    steps: # Что делаем
+      - uses: actions/checkout@v4 # Выкачиваем репозиторий
+      - uses: actions/setup-java@v4 # Настраиваем Java
+        with:
+          distribution: 'oracle' # Указываем название поставщика JDK
+          java-version: '17'
+      - run: ./gradlew clean test # запуск тестов
+
+
+
