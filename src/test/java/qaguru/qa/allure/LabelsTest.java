@@ -14,7 +14,6 @@ public class LabelsTest extends BaseTest {
     @Link(value = "Testing", url = "https://testing.github.com") // <== Добавляет ссылку на внешний ресурс, например, на задачу или документацию.
     @DisplayName("Создание Issue для авторизованного пользователя") // <== Устанавливает понятное и человекочитаемое имя для теста, отображаемое в отчетах.
     public void testStaticLabels() {
-
     }
 
     @Test
