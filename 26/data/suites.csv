@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Aug 23 07:18:47 GMT 2024","Fri Aug 23 07:18:49 GMT 2024","2428","","qaguru.qa.allure.StepsTest","","qaguru.qa.allure.StepsTest","testAnnotatedStep","testAnnotatedStep()",""
+"passed","Fri Aug 23 07:18:49 GMT 2024","Fri Aug 23 07:18:51 GMT 2024","2071","","qaguru.qa.allure.StepsTest","","qaguru.qa.allure.StepsTest","testLambdaStep","testLambdaStep()",""
+"passed","Fri Aug 23 07:18:41 GMT 2024","Fri Aug 23 07:18:44 GMT 2024","2775","","qaguru.qa.allure.AttachmentsTest","","qaguru.qa.allure.AttachmentsTest","testLambdaAttachments","testLambdaAttachments()",""
+"passed","Fri Aug 23 07:18:44 GMT 2024","Fri Aug 23 07:18:47 GMT 2024","2402","","qaguru.qa.allure.SelenideTest","","qaguru.qa.allure.SelenideTest","testIssueSearch","testIssueSearch()",""
+"passed","Fri Aug 23 07:18:36 GMT 2024","Fri Aug 23 07:18:41 GMT 2024","5200","","qaguru.qa.allure.AttachmentsTest","","qaguru.qa.allure.AttachmentsTest","testAnnotatedAtachments","testAnnotatedAtachments()",""
