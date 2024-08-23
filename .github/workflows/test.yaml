@@ -1,6 +1,8 @@
 name: Test  # Название workflow, отображаемое в интерфейсе GitHub Actions
 
 on: [push]  # Триггер, запускающий workflow при каждом пуше в репозиторий
+#on: workflow_dispatch # Этот триггер позволяет запускать workflow вручную через интерфейс GitHub Actions.
+                      # Это не происходит автоматически, как с push, а требует, чтобы пользователь запустил процесс вручную.
 
 jobs:
   test:
@@ -12,8 +14,8 @@ jobs:
           distribution: 'oracle'  # Указываем поставщика JDK (Oracle)
           java-version: '17'  # Указываем версию JDK (Java 17)
       - uses: Xotabu4/selenoid-github-action@v2  # Используем Selenoid для запуска браузерных тестов
-      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub  # Запуск тестов через Gradle, используя удаленный браузер Selenoid
-
+      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub  # Запуск тестов через Gradle,
+                                                                                  # используя удаленный браузер Selenoid
         # Скачиваем историю тестов
       - uses: actions/checkout@v2  # Снова выкачиваем репозиторий, но уже для работы с веткой gh-pages
         if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
@@ -35,7 +37,7 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v2  # Публикуем сгенерированный Allure отчет на GitHub Pages
         if: always()  # Выполняем этот шаг всегда, даже если предыдущие шаги завершились ошибкой
         env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Используем GitHub токен для авторизации и пуша в ветку gh-pages
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}  # Используем GitHub токен для авторизации и пуша в ветку gh-pages
           PUBLISH_BRANCH: gh-pages  # Указываем ветку для публикации отчета (gh-pages)
           PUBLISH_DIR: allure-history  # Указываем директорию, содержимое которой будет опубликовано на GitHub Pages
 
