@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
-public class WebSteps extends BaseTest {
+public class WebSteps {
     @Step("Открываем главную страницу")
     public WebSteps openMainPage() {
         open("https://github.com");

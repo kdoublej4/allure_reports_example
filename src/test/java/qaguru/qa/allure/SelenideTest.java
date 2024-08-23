@@ -22,7 +22,5 @@ public class SelenideTest {
 
         $x("//a[@id='issues-tab']").click();
         $x("//span[contains(text(), '#80')]").should(exist);
-
-        sleep(3000);
     }
 }
