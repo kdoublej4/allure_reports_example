@@ -7,12 +7,10 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SelenideTest {
+public class SelenideTest extends TestBase {
 
     @Test
     public void testIssueSearch() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         open("https://github.com");
 
         $x("//span[contains(text(), 'Search or jump to...')]").click(); // Тут ===>
